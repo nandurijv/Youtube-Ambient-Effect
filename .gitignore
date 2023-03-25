@@ -4,6 +4,6 @@ venv
 #test data
 TestData/Frames/
 TestData/demo.mp4
-/DS_Store
+/.DS_Store
 
 .DS_Store
