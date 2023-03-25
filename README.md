@@ -7,6 +7,9 @@ Parallel and Distributed Processing Project: Recreating Youtube's Ambient Effect
 
 * Read Frames of the video using OpenCV
 * Read the pixel values of each frame
+* Designate values to the position and spread of the box-shadow according to luminance
+* Designate values to the color of box-shadow according to chroma sampling
+* Create the equivalent css
 
 ## How to Use the script
 
