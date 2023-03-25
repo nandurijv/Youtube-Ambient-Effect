@@ -26,7 +26,7 @@ Parallel and Distributed Processing Project: Recreating Youtube's Ambient Effect
     pip install -r requirements.txt
     ```
 
-* Upload your video in the TestData folder
+* Upload your video in the `TestData` folder
 * Include the video in index.html in a `video` or a `div` element with `id "video"`
 * Run
 
