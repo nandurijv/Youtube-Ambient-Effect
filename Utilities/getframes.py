@@ -24,35 +24,36 @@ print(f'FPS(FRAMES PER SECOND): {cap.get(cv2.CAP_PROP_FPS):0.2f}')
 cap.release()
 
 #display multiple frames from the video
-def read_frames():
+def read_frames(vid_path):
     # Open the video file
-    cap = cv2.VideoCapture('TestData/demo.mp4')
+    cap = cv2.VideoCapture(vid_path)
 
     # Check if the video file was opened successfully
     if not cap.isOpened():
         print("Error opening video file")
 
     # Read and display each frame of the video
-    img_idx = 0
-    while True:
+    img_idx = -1
+    while img_idx!=cap.get(cv2.CAP_PROP_FRAME_COUNT):
         # Capture a frame from the video
         ret, frame = cap.read()
-
+        img_idx += 1
         # If frame is read correctly, ret is True
-        if ret:
+        if ret and img_idx%(int(cap.get(cv2.CAP_PROP_FPS)*2)) == 0:
+            print(img_idx)
             # Display the frame
             cv2.imshow('frame', frame)
 
             out_path = "./TestData/Frames"
             frame_name = 'Frame'+str(img_idx)+'.jpg'
             cv2.imwrite(os.path.join(out_path, frame_name), frame)
-            img_idx += 1
 
             # Wait for 25 milliseconds and check if the user wants to quit
             if cv2.waitKey(25) & 0xFF == ord('q'):
                 break
         else:
-            break
+            print(img_idx)
+            continue
 
     # Release the video capture object and close all windows
     cap.release()
