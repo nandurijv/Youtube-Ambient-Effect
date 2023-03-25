@@ -7,3 +7,8 @@ Parallel and Distributed Processing Project: Recreating Youtube's Ambient Effect
 
 * Read Frames of the video using OpenCV
 * Read the pixel values of each frame
+
+## How to Use the script
+
+* Clone the project
+* Run python -m
