@@ -14,7 +14,12 @@ Parallel and Distributed Processing Project: Recreating Youtube's Ambient Effect
 ## How to Use the script
 
 * Clone the project
-* Run `python -m venv venv`
+* Run
+
+    ``` python
+    python -m venv venv
+    ```
+
 * Install all the requirements using
 
     ``` python
@@ -23,4 +28,8 @@ Parallel and Distributed Processing Project: Recreating Youtube's Ambient Effect
 
 * Upload your video in the TestData folder
 * Include the video in index.html in a `video` or a `div` element with `id "video"`
-* run python3 main.py
+* Run
+
+    ``` python
+    python3 main.py
+    ```
