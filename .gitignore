@@ -2,7 +2,7 @@
 venv
 
 #test data
-TestData/Frames/
+TestData/Frames/*.jpg
 TestData/demo.mp4
 /.DS_Store
 
