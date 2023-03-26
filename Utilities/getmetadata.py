@@ -1,6 +1,6 @@
 import cv2
 
-def get_meta_data(vid_path):
+def get_meta_data(vid_path,frame_factor):
     print(vid_path)
     #read the input video
     cap = cv2.VideoCapture(vid_path)
@@ -22,4 +22,4 @@ def get_meta_data(vid_path):
     #stop the file from being used.
     cap.release()
 
-    return [int(n_frames),int(FPS*2)]
+    return [int(n_frames),int(FPS*frame_factor)]

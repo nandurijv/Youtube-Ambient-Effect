@@ -5,11 +5,11 @@ from Utilities.writeoutput import write_to_file
 # save your video in TesData directory and then run the code.
 vid_path = "TestData/demo.mp4"
 img_path = "TestData/Frames/"
-
+frame_factor = 2
 #main function
 def ambient_matrix_info(vid_name):
     #show info about the video
-    meta = get_meta_data(vid_path)
+    meta = get_meta_data(vid_path, frame_factor)
     print(meta)
 
     #clear the output
@@ -21,11 +21,16 @@ def ambient_matrix_info(vid_name):
     write_to_file(f'@keyframes a1{{\n\t')
 
     # import all the frames into the Frames directory
-    read_frames(vid_path)
+    #---------------------------------PARALLEL PROCESSING STARTS HERE--------------------------------
+    #parallelise reading of frames
+    read_frames(vid_path,frame_factor)
 
+    #parallelise processing of frames
     # read the chroma subsampling values in a matrix
     for i in range(0,int(meta[0]),int(meta[1])):
         get_pixel_matrix(f'{img_path}Frame{i}',i,meta[0])
+    
+    #---------------------------------PARALLEL PROCESSING ENDS HERE--------------------------------
     
     # format the css
     with open('OutputCss/style.css', 'rb+') as fh:

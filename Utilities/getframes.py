@@ -24,7 +24,7 @@ print(f'FPS(FRAMES PER SECOND): {cap.get(cv2.CAP_PROP_FPS):0.2f}')
 cap.release()
 
 #display multiple frames from the video
-def read_frames(vid_path):
+def read_frames(vid_path,frame_factor):
     # Open the video file
     cap = cv2.VideoCapture(vid_path)
 
@@ -39,7 +39,7 @@ def read_frames(vid_path):
         ret, frame = cap.read()
         img_idx += 1
         # If frame is read correctly, ret is True
-        if ret and img_idx%(int(cap.get(cv2.CAP_PROP_FPS)*2)) == 0:
+        if ret and img_idx%(int(cap.get(cv2.CAP_PROP_FPS)*frame_factor)) == 0:
             print(img_idx)
             # Display the frame
             cv2.imshow('frame', frame)
